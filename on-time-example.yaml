@@ -1,0 +1,75 @@
+esphome:
+  name: on-time-example
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+logger:
+  level: DEBUG
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+web_server:
+  js_include: "www.js"
+  js_url: ""
+
+time:
+  - platform: sntp
+    id: my_time
+    on_time_sync:
+      then:
+        - datetime.set:
+            id: turn_on_time_datetime
+            value: !lambda |-
+              return ESPTime::from_epoch_local(id(my_time).now().timestamp + 30).strftime("%H:%M:%S");
+        - datetime.set:
+            id: turn_off_time_datetime
+            value: !lambda |-
+              return ESPTime::from_epoch_local(id(my_time).now().timestamp + 40).strftime("%H:%M:%S");
+
+button:
+  - platform: template
+    name: Set the time inputs to local time + 10 seconds
+    on_press: 
+      then:
+        - datetime.set:
+            id: turn_on_time_datetime
+            value: "!lambda |-
+              return ESPTime::from_epoch_local(id(my_time).now().timestamp + 10).strftime("%H:%M:%S");"
+        - datetime.set:
+            id: turn_off_time_datetime
+            value: !lambda |-
+              return ESPTime::from_epoch_local(id(my_time).now().timestamp + 20).strftime("%H:%M:%S");
+
+switch:
+  - platform: template
+    name: "Template Switch"
+    id: my_switch
+    optimistic: yes
+
+datetime:
+  - platform: template
+    id: turn_on_time_datetime
+    name: 1.Time to turn the switch on
+    time_id: my_time
+    optimistic: yes
+    # valid formats are '%Y-%m-%d %H:%M:%S' - '%Y-%m-%d %H:%M' - '%H:%M:%S' - '%H:%M'
+    initial_value: "16:45:20"
+    on_time:
+      - switch.turn_on:
+          id: my_switch
+
+  - platform: template
+    id: turn_off_time_datetime
+    name: 2.Time to trun the switch off
+    time_id: my_time
+    optimistic: yes
+    # valid formats are '%Y-%m-%d %H:%M:%S' - '%Y-%m-%d %H:%M' - '%H:%M:%S' - '%H:%M'
+    initial_value: "16:45:20"
+    on_time:
+      - switch.turn_off:
+          id: my_switch
