@@ -2,7 +2,7 @@
 
 Adds a datime component to esphome. You will be able to pick a datetime, a date, or a time over the `web_server` frontened and Trigger automations based on the time provided by the user after compile time
 
-this the basic structure in the yaml config
+This is the basic structure in the yaml config
 ```
 datetime:
   - platform: template
@@ -26,18 +26,18 @@ time:
 ```
 
 ## Installation
-It is not part of esphome at the this point and to be able to work soome core files of esphope have to be changed.
+It is not part of esphome at this point and to be able to make it work some core files of esphope had to be changed.
 So if you want to try it out you would need to build a custom version of esphome using this Github Fork of esphome
 <a href="https://github.com/RFDarter/esphome/tree/Add-input_datetime" target="_blank">
 rfdarter-add-input_datetime
 </a>
 
 You will also need a modified version of the `esphome-web_server` component, found here
-<a href="https://github.com/RFDarter/esphome/tree/Add-input_datetime" target="_blank">
+<a href="https://github.com/RFDarter/esphome-webserver/tree/ha-styling-input_datetime-support" target="_blank">
 rfdarter-esphome-webserver
 </a>
 
-Or simply use the buils js file provided<a href="https://raw.githubusercontent.com/rfdarter/esphome-datetime/main/www.js" target="_blank">here</a> in this repository
+Or simply use the build js file provided <a href="https://raw.githubusercontent.com/rfdarter/esphome-datetime/main/www.js" target="_blank">here</a> in this repository
 
 
 ## That's what it will look like on the front end
@@ -71,6 +71,6 @@ Or simply use the buils js file provided<a href="https://raw.githubusercontent.c
 <img src="https://raw.githubusercontent.com/rfdarter/esphome-datetime/main/images/pick-time-pc-ff.jpg" width="50%">
 </a>
 
-##Todo
+## Todo
 add api support
 
