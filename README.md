@@ -28,12 +28,12 @@ time:
 ## Installation
 It is not part of esphome at this point and to be able to make it work some core files of esphope had to be changed.
 So if you want to try it out you would need to build a custom version of esphome using this Github Fork of esphome
-<a href="https://github.com/RFDarter/esphome/tree/Add-input_datetime" target="_blank">
+<a href="https://github.com/RFDarter/esphome/tree/add-datetime" target="_blank">
 rfdarter-add-input_datetime
 </a>
 
 You will also need a modified version of the `esphome-web_server` component, found here
-<a href="https://github.com/RFDarter/esphome-webserver/tree/ha-styling-input_datetime-support" target="_blank">
+<a href="https://github.com/RFDarter/esphome-webserver/tree/ha-styling-datetime-support" target="_blank">
 rfdarter-esphome-webserver
 </a>
 
