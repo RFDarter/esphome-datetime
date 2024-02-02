@@ -1,6 +1,6 @@
 # esphome-datetime
 
-Adds a datime component to esphome. You will be able to pick a datetime, a date, or a time over the `web_server` frontened and Trigger automations based on the time provided by the user after compile time
+Adds a datime component to esphome. You will be able to pick a datetime, a date, or a time over the `web_server` frontend and Trigger automations based on the time provided by the user after compile time
 
 This is the basic structure in the yaml config
 ```
