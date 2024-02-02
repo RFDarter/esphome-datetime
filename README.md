@@ -6,7 +6,7 @@ This is the basic structure in the yaml config
 ```
 datetime:
   - platform: template
-    id: my_time_datetime
+    id: my_datetime
     name: Time to turn the switch on
     time_id: my_time
     optimistic: yes
@@ -17,7 +17,7 @@ datetime:
           id: my_switch
 ```
 
-`time_id` is needed if you provide an `on_time` automation and can be any time component
+`time_id` is needed if you provide an `on_time` automation. It can be any time component(sntp/ds1307/..)
 
 ```
 time:
@@ -26,7 +26,7 @@ time:
 ```
 
 ## Installation
-It is not part of esphome at this point and to be able to make it work some core files of esphope had to be changed.
+It is not part of esphome at this point in time and to be able to make it work some core files of esphope had to be changed.
 So if you want to try it out you would need to build a custom version of esphome using this Github Fork of esphome
 <a href="https://github.com/RFDarter/esphome/tree/add-datetime" target="_blank">
 rfdarter-add-input_datetime
