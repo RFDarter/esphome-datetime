@@ -38,8 +38,8 @@ button:
       then:
         - datetime.set:
             id: turn_on_time_datetime
-            value: "!lambda |-
-              return ESPTime::from_epoch_local(id(my_time).now().timestamp + 10).strftime("%H:%M:%S");"
+            value: !lambda |-
+              return ESPTime::from_epoch_local(id(my_time).now().timestamp + 10).strftime("%H:%M:%S");
         - datetime.set:
             id: turn_off_time_datetime
             value: !lambda |-
