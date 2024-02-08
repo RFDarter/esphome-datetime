@@ -39,6 +39,55 @@ rfdarter-esphome-webserver
 
 Or simply use the build js file provided <a href="https://raw.githubusercontent.com/rfdarter/esphome-datetime/main/www.js" target="_blank">here</a> in this repository
 
+### Installation on Windows
+
+Here is a way you could install it on a windows maschine using PowerShell
+Assuming you have Python and PIP installed
+
+**Step 1.**
+Download the zip file of this repo and extract its content
+https://github.com/RFDarter/esphome/archive/refs/heads/add-datetime.zip
+
+**Step 2.**
+Open a PowerShell and navigate to the downloaded folder 
+```
+cd C:\Users\darter\Downloads\esphome-add-datetime\esphome-add-datetime
+```
+
+**Step 3.**
+Create a Virtual Environment
+```
+python3 -m venv .venv
+```
+**Step 4**
+Activate it
+```
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+```
+.venv\Scripts\activate
+```
+
+if it worked your promt should have changed to 
+`(.venv) PS C:\Users\darter\Downloads\esphome-add-datetime>`
+
+**Step 5**
+Install esphome on this virtual environment using the downloaded fork
+```
+pip install -r .\requirements.txt
+```
+```
+pip install -e .
+```
+
+**Step 6.**
+Use esphome as normal
+```
+esphome run my_config.yaml
+```
+
+To use it again after you closed the PowerShell just redo Step 4
+
 
 ## That's what it will look like on the front end
 <a href="https://raw.githubusercontent.com/rfdarter/esphome-datetime/main/images/pick-date-mobile.jpg" target="_blank">
