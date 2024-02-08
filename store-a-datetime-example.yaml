@@ -27,16 +27,16 @@ button:
     on_press: 
       then:
         - lambda: |-
-            ESP_LOGD("Button", "You can access the datetime as a string - %s - is: %s", id(my_datetime).get_name().c_str(), id(my_datetime).state.c_str() );
+            ESP_LOGDI"Button", "You can access the datetime as a string - %s - is: %s", id(my_datetime).get_name().c_str(), id(my_datetime).state.c_str() );
         - lambda: |-
-            ESP_LOGD("Button", "You can also access the datetime values directly - hour: %d", id(my_datetime).state_as_time.hour );
-            ESP_LOGD("Button", "And do calucaltions with them");
+            ESP_LOGI("Button", "You can also access the datetime values directly - hour: %d", id(my_datetime).state_as_time.hour );
+            ESP_LOGI("Button", "And do calucaltions with them");
             id(my_datetime).state_as_time.recalc_timestamp_utc();
-            ESP_LOGD("Button", "sntp timestamp: %d   picked timestamp: %d", id(my_time).now().timestamp, (id(my_datetime).state_as_time.timestamp - ESPTime::timezone_offset()));
+            ESP_LOGI("Button", "sntp timestamp: %d   picked timestamp: %d", id(my_time).now().timestamp, (id(my_datetime).state_as_time.timestamp - ESPTime::timezone_offset()));
             if (id(my_time).now().timestamp > (id(my_datetime).state_as_time.timestamp - ESPTime::timezone_offset())) {
-              ESP_LOGD("Button", "The selected date/time is smaler than the current local date/time");
+              ESP_LOGI("Button", "The selected date/time is smaler than the current local date/time");
             } else {
-              ESP_LOGD("Button", "The selected date/time is bigger than the current local date/time");
+              ESP_LOGI("Button", "The selected date/time is bigger than the current local date/time");
             }
 
 datetime:
