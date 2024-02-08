@@ -37,7 +37,14 @@ You will also need a modified version of the `esphome-web_server` component, fou
 rfdarter-esphome-webserver
 </a>
 
-Or simply use the build js file provided <a href="https://raw.githubusercontent.com/rfdarter/esphome-datetime/main/www.js" target="_blank">here</a> in this repository
+Or simply use the build js file provided <a href="https://raw.githubusercontent.com/rfdarter/esphome-datetime/main/www.js" target="_blank">here</a> in this repository 
+and place it in the same directory as your `config.yaml` and add this to your `conif.yaml`
+
+```
+web_server:
+  js_include: "www.js"
+  js_url: ""
+```
 
 ### Installation on Windows
 
